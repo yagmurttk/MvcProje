@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-   public class CategoryManager
+    public class CategoryManager
     {
         GenericRepository<Category> repo = new GenericRepository<Category>();
         public List<Category> GetAllBL()
@@ -17,16 +17,17 @@ namespace BusinessLayer.Concrete
         }
         public void CategoryAddBL(Category p)
         {
-            repo.Insert(p);
-            //if(p.CategoryName=="" || p.CategoryName.Length<=3 ||
-            //    p.CategoryDescription=="" || p.CategoryName.Length>=51)
-            //{
-            //    //hata mesajı
-            //}
-            //else
-            //{
 
-            //}
+            if (p.CategoryName == "" || p.CategoryName.Length <= 3 ||
+                p.CategoryDescription == "" || p.CategoryName.Length >= 51)
+            {
+                //hata mesajı
+            }
+            else
+            {
+                repo.Insert(p);
+            }
+           
         }
     }
 }
